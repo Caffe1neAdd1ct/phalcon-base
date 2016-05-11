@@ -1,0 +1,1 @@
+Please click the following link to verify your account: <a href="http://{{ publicUrl }}{{ verifyUrl }}/?token={{ token }}">verify your account</a>.

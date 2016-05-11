@@ -1,0 +1,21 @@
+{
+    "name": "vendor/diet-eliminator",
+    "description": "Description of project diet-eliminator.",
+    "authors": [
+        {
+            "name": "kevin",
+            "email": "your@email.here"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require" : {
+        "php" : ">=5.3.9",
+        "ext-phalcon" : ">=1.3.4",
+        "swiftmailer/swiftmailer" : "5.3.*",
+        "zvps/phalcon-validation" : "dev-master"
+    },
+    "require-dev": {
+        "phalcon/devtools": "dev-master",
+        "fabfuel/prophiler": "~1.0.0"
+    }
+}

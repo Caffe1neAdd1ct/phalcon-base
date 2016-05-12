@@ -7,7 +7,7 @@ A collection of boilerplate code for Phalcon Framework projects to enable even f
 
 ## Setup
 
-git clone git@github.com:Caffe1neAdd1ct/phalcon-base.git
+    git clone git@github.com:Caffe1neAdd1ct/phalcon-base.git
 
 
 ### Composer
@@ -32,16 +32,29 @@ If needed change the php executable path inside `install`, some installations ar
 
 ### Application Settings
 
+
 #### Database
-    adapter - Mysql Sqlite
-    host - 127.0.0.1
-    user - notroot?
+    adapter  - Mysql Sqlite
+    host     - 127.0.0.1
+    user     - notroot?
     password - secret
-    dbname - schema or filename
-    dbdir - only for sqlite, path to db file.
+    dbname   - schema or filename
+    dbdir    - only for sqlite, path to db file.
+
+
 #### Url / Routing
-    host - domain / host
+    host    - domain / host
     baseUri - /subdirectory/ if not straight inside the document root
+
+
+#### Mail
+    server   - localhost
+    username - me@mailbox.com
+    password - secret
+    port     - 1025 (default for mailcatcher)
+    security - none or tls or ssl
+    from     - app@localhost
+    name     - App Name
 
 ### Mailcatcher
 

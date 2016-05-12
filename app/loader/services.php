@@ -92,7 +92,7 @@ $di->set('db', function() use ($app, $eventsManager) {
         'host' => $app->database->host,
         'username' => $app->database->username,
         'password' => $app->database->password,
-        'dbname' => APP_DIR . $app->database->dbname
+        'dbname' => $app->database->dbdir . $app->database->dbname
             )
     );
     $dbclass->setEventsManager($eventsManager);

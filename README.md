@@ -12,23 +12,23 @@ git clone git@github.com:Caffe1neAdd1ct/phalcon-base.git
 
 ### Composer
 
-cd phalcon-base/
-/usr/bin/php /path/to/composer.phar install --dev
+    cd phalcon-base/
+    /usr/bin/php /path/to/composer.phar install --dev
 
 
 ### PHP In Built Web Server
 
-cd phalcon-base/
-/usr/bin/php -S localhost:8000 -t public public/htrouter.php
+    cd phalcon-base/
+    /usr/bin/php -S localhost:8000 -t public public/htrouter.php
 
 
 ### Compiling Phalcon
 
-git clone --depth=1 git://github.com/phalcon/cphalcon.git
-cd cphalcon/build
-sudo ./install
+    git clone --depth=1 git://github.com/phalcon/cphalcon.git
+    cd cphalcon/build
+    sudo ./install
 
-    If needed change the php executable path inside `install`, some installations are suffixed e.g php55 php56
+If needed change the php executable path inside `install`, some installations are suffixed e.g php55 php56
 
 ### Application Settings
 

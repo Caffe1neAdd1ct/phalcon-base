@@ -10,7 +10,16 @@ A collection of boilerplate code for Phalcon Framework projects to enable even f
     git clone git@github.com:Caffe1neAdd1ct/phalcon-base.git
 
 
-### Composer
+### Compiling Phalcon
+
+    git clone --depth=1 git://github.com/phalcon/cphalcon.git
+    cd cphalcon/build
+    sudo ./install
+
+If needed change the PHP executable path inside `install`, some installations are suffixed e.g php55 php56
+
+
+### Installing dependencies via Composer
 
     cd phalcon-base/
     /usr/bin/php /path/to/composer.phar install --dev
@@ -21,14 +30,8 @@ A collection of boilerplate code for Phalcon Framework projects to enable even f
     cd phalcon-base/
     /usr/bin/php -S localhost:8000 -t public public/htrouter.php
 
+The PHP inbuilt webserver should only be used for development purposes.
 
-### Compiling Phalcon
-
-    git clone --depth=1 git://github.com/phalcon/cphalcon.git
-    cd cphalcon/build
-    sudo ./install
-
-If needed change the php executable path inside `install`, some installations are suffixed e.g php55 php56
 
 ### Application Settings
 

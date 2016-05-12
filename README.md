@@ -61,16 +61,42 @@ The PHP inbuilt webserver should only be used for development purposes.
 
 ### Mailcatcher
 
-#### rbenv
+#### Install Rbenv
+
+    git clone git://github.com/sstephenson/rbenv.git .rbenv
+    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+    echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+    git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+    source ~/.bash_profile
 
 
-#### bundler
+#### Install Ruby through rbenv:
 
+    rbenv install 2.1.0-rc1
+    rbenv local 2.1.0-rc1
+    rbenv global 2.1.0-rc1
+    rbenv rehash
+
+#### Update all Gems and install bundler
+
+    gem update
+    gem update --system
+    gem install bundler
+    rbenv rehash
+
+
+#### Install mailcatcher through bundler
+
+    mkdir mailcatcher && cd mailcatcher;
+    bundle init
+    vim Gemfile
+    add mailcatcher
+    bundle install --without development test --path vendor --standalone
 
 
 #### mailcatcher standalone
 
-
+    bundle exec mailcatcher
 
 
 

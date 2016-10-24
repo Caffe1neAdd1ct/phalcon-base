@@ -3,6 +3,8 @@
 /**
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
  */
+
+/* @var $di Phalcon\Di */
 $di = new Phalcon\DI\FactoryDefault();
 
 /**
@@ -83,19 +85,35 @@ $di->set('volt', function($view, $di) use ($app) {
 }, true);
 
 /**
+ * Logging
+ */
+$di->set('log', function() use ($app) {
+    $loggerClass = 'Phalcon\Logger\Adapter\\' . $app->logging->adapter;
+    try {
+        $loggerClass = new $loggerClass();
+    } catch (Exception $ex) {
+
+    }
+});
+
+/**
  * Database connection is created based in the parameters defined in the configuration file
  */
 $di->set('db', function() use ($app, $eventsManager) {
-    $dbclass = 'Phalcon\Db\Adapter\Pdo\\' . $app->database->adapter;
-    $dbclass = new $dbclass(
-            array(
-        'host' => $app->database->host,
-        'username' => $app->database->username,
-        'password' => $app->database->password,
-        'dbname' => $app->database->dbdir . $app->database->dbname
-            )
-    );
-    $dbclass->setEventsManager($eventsManager);
+    try {
+        $dbclass = 'Phalcon\Db\Adapter\Pdo\\' . $app->database->adapter;
+        $dbclass = new $dbclass(
+                array(
+            'host' => $app->database->host,
+            'username' => $app->database->username,
+            'password' => $app->database->password,
+            'dbname' => $app->database->dbdir . $app->database->dbname
+                )
+        );
+        $dbclass->setEventsManager($eventsManager);
+    } catch (\Exception $e) {
+        $dbclass = false;
+    }
     return $dbclass;
 });
 

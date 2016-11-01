@@ -1,6 +1,10 @@
 <?php
 
 use \Phalcon\Db\Column;
+use Phalcon\Mvc\Model;
+use Phalcon\Validation;
+use Phalcon\Validation\Validator\Email as EmailValidator;
+use Phalcon\Validation\Validator\Uniqueness as UniquenessValidator;
 
 class Users extends \Phalcon\Mvc\Model
 {
@@ -108,13 +112,34 @@ class Users extends \Phalcon\Mvc\Model
      */
     public function validation()
     {
-        $this->validate(new \Phalcon\Mvc\Model\Validator\Uniqueness(array('field' => 'username', 'message' => 'Username is unavailable, please try another name.')));
-        $this->validate(new \Phalcon\Mvc\Model\Validator\Uniqueness(array('field' => 'email', 'message' => 'Email address already registered, please try a password reset.')));
+        $validator = new Validation();
+
+        $validator->add(
+            'username', //your field name
+            new UniquenessValidator([
+                'model' => $this,
+                'message' => 'Username is unavailable, please try another name.'
+            ])
+        );
+        $validator->add(
+            'email', //your field name
+            new UniquenessValidator([
+                'model' => $this,
+                'message' => 'Email address already registered, please try a password reset.'
+            ])
+        );
+
+        $validator->add(
+            'email',
+            new EmailValidator([
+                'model' => $this,
+                'message' => 'Please enter a correctly formatted email address.',
+            ])
+        );
         
-        $this->validate(new \Phalcon\Mvc\Model\Validator\Email(array('field' => 'email', 'required' => true,)));
-        $this->validate( new \Phalcon\Mvc\Model\Validator\PresenceOf(array('field' => 'username', 'required' => true)));
-        
-        return ($this->validationHasFailed() != true);
+        $validator->add('username', new Validation\Validator\PresenceOf(['required' => true]));
+
+        return $this->validate($validator);
     }
     
     /**

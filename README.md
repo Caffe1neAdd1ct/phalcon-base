@@ -44,6 +44,9 @@ The PHP inbuilt webserver should only be used for development purposes.
     dbname   - schema or filename
     dbdir    - only for sqlite, path to db file.
 
+#### Database migrations
+    ./vendor/bin/phalcon.php migration run --config=app/config/app.ini --migrations=/app/migrations/
+
 
 #### Url / Routing
     host    - domain / host

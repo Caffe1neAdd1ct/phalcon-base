@@ -1,13 +1,15 @@
 <?php
-class ErrorsController extends Phalcon\Mvc\Controller
+
+class ErrorsController extends ControllerBase
 {
     public function initialize()
     {
         $this->tag->setTitle('Oops!');
+        parent::initialize();
     }
     public function show404Action()
     {
-        $this->response->setStatusCode('401', "Resource not found.");
+        $this->response->setStatusCode('404', "Resource not found.");
     }
     
     public function show401Action()
@@ -22,6 +24,6 @@ class ErrorsController extends Phalcon\Mvc\Controller
     
     public function show500Action()
     {
-        $this->response->setStatusCode('401', "Internal server error.");
+        $this->response->setStatusCode('500', "Internal server error.");
     }
 }

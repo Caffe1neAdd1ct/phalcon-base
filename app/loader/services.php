@@ -10,7 +10,7 @@ $di = new Phalcon\DI\FactoryDefault();
 /**
  * We register the events manager
  */
-$di->set('dispatcher', function() use ($eventsManager, $profiler) {
+$di->set('dispatcher', function() use ($eventsManager) {
 
     $dispatch = new Phalcon\Mvc\Dispatcher;
     $dispatch->setEventsManager($eventsManager);
@@ -18,11 +18,11 @@ $di->set('dispatcher', function() use ($eventsManager, $profiler) {
     /**
      * Check if the user is allowed to access certain action using the SecurityPlugin
      */
-    $eventsManager->attach('dispatch:beforeDispatch', new SecurityPlugin);
+    $eventsManager->attach('dispatch:beforeExecuteRoute', new SecurityPlugin());
     /**
      * Handle exceptions and not-found exceptions using NotFoundPlugin
      */
-    $eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
+    $eventsManager->attach('dispatch:beforeException', new NotFoundPlugin());
 
 
     return $dispatch;
@@ -103,12 +103,12 @@ $di->set('db', function() use ($app, $eventsManager) {
     try {
         $dbclass = 'Phalcon\Db\Adapter\Pdo\\' . $app->database->adapter;
         $dbclass = new $dbclass(
-                array(
-            'host' => $app->database->host,
-            'username' => $app->database->username,
-            'password' => $app->database->password,
-            'dbname' => $app->database->dbdir . $app->database->dbname
-                )
+            array(
+                'host' => $app->database->host,
+                'username' => $app->database->username,
+                'password' => $app->database->password,
+                'dbname' => $app->database->dbname
+            )
         );
         $dbclass->setEventsManager($eventsManager);
     } catch (\Exception $e) {
@@ -118,6 +118,7 @@ $di->set('db', function() use ($app, $eventsManager) {
 });
 
 /**
+ * Model cache for db structures
  * Use memory cache for dev
  * Use APC cache for live
  */
@@ -129,6 +130,29 @@ $di->set('modelsMetadata', function() use ($app) {
     );
     return $metaCacheClass;
 });
+
+/**
+ * Front end cache for views
+ * @todo investigate if this is actually needed as we are using volt
+ */
+$di->set('viewCache', function () use ($app, $profiler) {
+
+        //Cache for one day
+        $cacheFrontend = new \Phalcon\Cache\Frontend\Data(array(
+            "lifetime" => 86400
+        ));
+
+        //Set file cache
+        $cacheBackend = new Phalcon\Cache\Backend\File($cacheFrontend, array(
+            "cacheDir" => $app->application->cacheDir,
+            "prefix" => "app-data"
+        ));
+        
+        $cache = \Fabfuel\Prophiler\Decorator\Phalcon\Cache\BackendDecorator($cacheBackend, $profiler);
+
+        return $cache;
+    }
+);
 
 
 /**
@@ -169,4 +193,8 @@ $di->setShared('pluginsManager', function($profiler, $eventsManager) {
     $pluginManager = new \Fabfuel\Prophiler\Plugin\Manager\Phalcon($profiler);
     $pluginManager->setEventsManager($eventsManager);
     $pluginManager->register();
+});
+
+$di->setShared('logger', function() use ($profiler) {
+    return $logger = new \Fabfuel\Prophiler\Adapter\Psr\Log\Logger($profiler);
 });

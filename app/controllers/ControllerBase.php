@@ -14,11 +14,11 @@ class ControllerBase extends Controller
             $auth = $this->session->get('auth');
             $user = Users::findByUsernameFirst($auth['username']);
             
-            $this->view->isAuth = true;
+            $this->view->hasAuth = true;
             $this->view->user = $user;
             
         } else {
-            $this->view->isAuth = false;
+            $this->view->hasAuth = false;
         }
     }
     

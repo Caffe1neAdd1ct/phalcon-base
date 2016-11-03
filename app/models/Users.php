@@ -1,11 +1,14 @@
 <?php
 
 use \Phalcon\Db\Column;
-use Phalcon\Mvc\Model;
 use Phalcon\Validation;
 use Phalcon\Validation\Validator\Email as EmailValidator;
 use Phalcon\Validation\Validator\Uniqueness as UniquenessValidator;
 
+/**
+ * Application user accounts
+ * @author Kevin Andrews <kevin@zvps.uk>
+ */
 class Users extends \Phalcon\Mvc\Model
 {
     protected $id;

@@ -5,9 +5,8 @@ class IndexController extends ControllerBase
     
     public function initialize()
     {
-        parent::initialize();
-        
         $this->loggedInRedirect();
+        parent::initialize();
     }
 
     public function indexAction()

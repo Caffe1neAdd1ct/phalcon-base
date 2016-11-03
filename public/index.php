@@ -21,9 +21,11 @@ try {
     require_once ( APP_DIR . $app->application->vendorDir . '/autoload.php' );
     
     /** start prophiler */
-    $eventsManager = new \Phalcon\Events\Manager();
     $profiler = new \Fabfuel\Prophiler\Profiler();
+    $profiler->addAggregator(new \Fabfuel\Prophiler\Aggregator\Database\QueryAggregator());
+    $profiler->addAggregator(new \Fabfuel\Prophiler\Aggregator\Cache\CacheAggregator());
     
+    $eventsManager = new \Phalcon\Events\Manager();
     $eventsManager->attach('dispatch', Fabfuel\Prophiler\Plugin\Phalcon\Mvc\DispatcherPlugin::getInstance($profiler));
     $eventsManager->attach('view', Fabfuel\Prophiler\Plugin\Phalcon\Mvc\ViewPlugin::getInstance($profiler));
     $eventsManager->attach('db', Fabfuel\Prophiler\Plugin\Phalcon\Db\AdapterPlugin::getInstance($profiler));
@@ -41,9 +43,8 @@ try {
     /** show pro toolbar */
     $toolbar = new \Fabfuel\Prophiler\Toolbar($profiler);
     $toolbar->addDataCollector(new \Fabfuel\Prophiler\DataCollector\Request());
-    echo $toolbar->render();
+    echo ($app->profiler->show) ? $toolbar->render() : null;
     
 } catch (\Phalcon\Exception $e) {
     echo "PhalconException: ", $e->getMessage();
 }
-

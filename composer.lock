@@ -4,9 +4,175 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3b43d75f1f2838dae0d53aef072602a2",
-    "content-hash": "2ba97919838259157298dc5483f21935",
+    "hash": "a5177a4f44cf0c9d3e9fa7446680ab7b",
+    "content-hash": "2375e59561160c737e82699c5185dc0a",
     "packages": [
+        {
+            "name": "fabfuel/prophiler",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fabfuel/prophiler.git",
+                "reference": "bd0746ce5317167193c1d0ff4ae5e1486dcc846a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fabfuel/prophiler/zipball/bd0746ce5317167193c1d0ff4ae5e1486dcc846a",
+                "reference": "bd0746ce5317167193c1d0ff4ae5e1486dcc846a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~5.4",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "container-interop/container-interop": "^1.1",
+                "doctrine/orm": "~2.4",
+                "elasticsearch/elasticsearch": "~1.3",
+                "erusev/parsedown": "~1.5",
+                "fabfuel/mongo": "~0.4",
+                "phalcon/devtools": "1.3.*@dev",
+                "phpmd/phpmd": "~1.0",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.0"
+            },
+            "suggest": {
+                "fabfuel/mongo": "ORM for Mongo, supports lazy loading, object references, subdocument classes and their collections.",
+                "phalcon/devtools": "This tools provide you useful scripts, helping to develop applications that use with Phalcon."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Fabfuel\\Prophiler\\": "src/"
+                },
+                "classmap": [
+                    "tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabian Fuelling",
+                    "email": "fabian@fabfuel.de"
+                }
+            ],
+            "description": "PHP Profiler & Developer Toolbar built for Phalcon",
+            "time": "2015-10-25 19:15:04"
+        },
+        {
+            "name": "phalcon/incubator",
+            "version": "3.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phalcon/incubator.git",
+                "reference": "f234a70cf02643fb3c5fb0f374e120178ad89001"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phalcon/incubator/zipball/f234a70cf02643fb3c5fb0f374e120178ad89001",
+                "reference": "f234a70cf02643fb3c5fb0f374e120178ad89001",
+                "shasum": ""
+            },
+            "require": {
+                "ext-phalcon": "^3.0",
+                "php": ">=5.5",
+                "swiftmailer/swiftmailer": "~5.2"
+            },
+            "require-dev": {
+                "codeception/aerospike-module": "~1.0",
+                "codeception/codeception": "~2.2",
+                "codeception/mockery-module": "~0.2",
+                "codeception/specify": "~0.4",
+                "codeception/verify": "~0.3",
+                "phpdocumentor/reflection-docblock": "^2.0.4",
+                "phpunit/phpunit": "4.8.*",
+                "squizlabs/php_codesniffer": "~2.6"
+            },
+            "suggest": {
+                "duncan3dc/fork-helper": "To use extended class to access the beanstalk queue service",
+                "ext-aerospike": "*",
+                "sergeyklay/aerospike-php-stubs": "The most complete Aerospike PHP stubs which allows autocomplete in modern IDEs"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phalcon\\": "Library/Phalcon/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Phalcon Team",
+                    "email": "team@phalconphp.com",
+                    "homepage": "http://phalconphp.com/en/team"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/phalcon/incubator/graphs/contributors"
+                }
+            ],
+            "description": "Adapters, prototypes or functionality that can be potentially incorporated to the C-framework.",
+            "homepage": "http://phalconphp.com",
+            "keywords": [
+                "framework",
+                "incubator",
+                "phalcon"
+            ],
+            "time": "2016-10-22 10:05:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2016-10-10 12:19:37"
+        },
         {
             "name": "swiftmailer/swiftmailer",
             "version": "v5.3.1",
@@ -65,12 +231,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zVPS/zvps-phalcon-validators.git",
-                "reference": "0811296088d7b43a9603c72152f3ab4790613e54"
+                "reference": "b595d8574e307d627f9623c2ce8de5d3dddbc9f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zVPS/zvps-phalcon-validators/zipball/0811296088d7b43a9603c72152f3ab4790613e54",
-                "reference": "0811296088d7b43a9603c72152f3ab4790613e54",
+                "url": "https://api.github.com/repos/zVPS/zvps-phalcon-validators/zipball/b595d8574e307d627f9623c2ce8de5d3dddbc9f9",
+                "reference": "b595d8574e307d627f9623c2ce8de5d3dddbc9f9",
                 "shasum": ""
             },
             "require": {
@@ -94,66 +260,22 @@
                 }
             ],
             "description": "Additional form and data validators extending the inbuilt phalcon validate interface.",
-            "time": "2016-03-18 22:10:14"
+            "time": "2016-11-02 20:47:29"
         }
     ],
     "packages-dev": [
-        {
-            "name": "fabfuel/prophiler",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fabfuel/prophiler.git",
-                "reference": "d6c80bb5c57b77e039032faed344d832c9630112"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fabfuel/prophiler/zipball/d6c80bb5c57b77e039032faed344d832c9630112",
-                "reference": "d6c80bb5c57b77e039032faed344d832c9630112",
-                "shasum": ""
-            },
-            "require-dev": {
-                "fabfuel/mongo": "~0.4",
-                "phalcon/devtools": "1.3.x-dev",
-                "phpmd/phpmd": "~1.0",
-                "phpunit/phpunit": "~4.0",
-                "psr/log": "~1.0",
-                "squizlabs/php_codesniffer": "~1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Fabfuel\\Prophiler\\": "src/Fabfuel/Prophiler/"
-                },
-                "classmap": [
-                    "tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Fabian Fuelling",
-                    "email": "fabian@fabfuel.de"
-                }
-            ],
-            "description": "Phalcon profiler including dev toolbar",
-            "time": "2014-11-25 14:29:22"
-        },
         {
             "name": "phalcon/devtools",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phalcon/phalcon-devtools.git",
-                "reference": "c10d18545bb8bae1957599e4822bace045a013cb"
+                "reference": "58e6b6582b8ae351e57078efe1182b85e99f0802"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phalcon/phalcon-devtools/zipball/c10d18545bb8bae1957599e4822bace045a013cb",
-                "reference": "c10d18545bb8bae1957599e4822bace045a013cb",
+                "url": "https://api.github.com/repos/phalcon/phalcon-devtools/zipball/58e6b6582b8ae351e57078efe1182b85e99f0802",
+                "reference": "58e6b6582b8ae351e57078efe1182b85e99f0802",
                 "shasum": ""
             },
             "require": {
@@ -193,7 +315,7 @@
                 }
             ],
             "description": "This tools provide you useful scripts to generate code helping to develop faster and easy applications that use with Phalcon framework.",
-            "homepage": "http://phalconphp.com",
+            "homepage": "https://phalconphp.com",
             "keywords": [
                 "Devtools",
                 "framework",
@@ -201,7 +323,47 @@
                 "phar",
                 "webtools"
             ],
-            "time": "2016-07-29 19:34:55"
+            "time": "2016-08-24 10:16:58"
+        },
+        {
+            "name": "ralouphie/getallheaders",
+            "version": "2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7.0",
+                "satooshi/php-coveralls": ">=1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "time": "2016-02-11 07:05:27"
         }
     ],
     "aliases": [],

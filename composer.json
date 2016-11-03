@@ -12,10 +12,12 @@
         "php" : ">=5.3.9",
         "ext-phalcon" : "^3.0",
         "swiftmailer/swiftmailer" : "5.3.*",
-        "zvps/phalcon-validation" : "dev-master"
+        "zvps/phalcon-validation" : "dev-master",
+        "fabfuel/prophiler": "~1.5",
+        "phalcon/incubator": "~3.0"
     },
     "require-dev": {
         "phalcon/devtools": "dev-master",
-        "fabfuel/prophiler": "~1.0.0"
+        "ralouphie/getallheaders": "2.0.5"
     }
 }

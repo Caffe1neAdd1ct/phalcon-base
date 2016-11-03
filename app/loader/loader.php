@@ -13,4 +13,6 @@ $loader->registerDirs(
         APP_DIR . $app->application->libraryDir,
         APP_DIR . $app->application->migrationsDir,
     )
-)->register();
+)->registerNamespaces([
+    'Phalcon' => APP_DIR . $app->application->vendorDir . 'phalcon/incubator/Library/Phalcon/'
+])->register();

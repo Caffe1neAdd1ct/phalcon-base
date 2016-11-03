@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         {{ get_title() }}
-        {{ stylesheet_link('css/bootstrap/bootstrap-responsive.min.css') }}
         {{ stylesheet_link('css/bootstrap/bootstrap.min.css') }}
+        {{ stylesheet_link('css/bootstrap/bootstrap-theme.min.css') }}
+        {{ stylesheet_link('css/font-awesome/font-awesome.min.css') }}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="nForced Website Hosting Limited">
     </head>
@@ -23,8 +24,10 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-12">
                 {% block content %}
                 {% endblock %}
+                </div>
             </div>
         </div>
 
